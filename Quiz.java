@@ -8,7 +8,7 @@ public class Quiz extends JFrame implements ActionListener{
 	JButton button1,button2;
 	ButtonGroup buttongroup;
 	int count=0,currques=0;
-	int arr[]=new int[6];	
+	int arr[]=new int[7];	
 	Quiz(String str){
 		super(str);
 		jlable=new JLabel();
@@ -43,7 +43,7 @@ public class Quiz extends JFrame implements ActionListener{
 				count=count+1;
 			currques++;
 			set();	
-			if(currques==5){
+			if(currques==arr.length){
 				button1.setEnabled(false);
 				button2.setText("Result");
 			}
@@ -88,6 +88,11 @@ public class Quiz extends JFrame implements ActionListener{
 			jlable.setText("What is the size of float and double in java?");
 			jradiobutton[0].setText("32 and 64");jradiobutton[1].setText("32 and 32");jradiobutton[2].setText("64 and 64");jradiobutton[3].setText("64 and 32");	
 		}
+		if(currques==6)
+		{
+			jlable.setText("Javascript is an _______ language?");
+			jradiobutton[0].setText("Object-Oriented");jradiobutton[1].setText("Object-based");jradiobutton[2].setText("Procedural");jradiobutton[3].setText("None of the above");	
+		}
 		
 		jlable.setBounds(30,40,450,20);
 		for(int i=0,j=0;i<=90;i+=30,j++)
@@ -105,6 +110,8 @@ public class Quiz extends JFrame implements ActionListener{
 		if(currques==4)
 			return(jradiobutton[0].isSelected());
 		if(currques==5)
+			return(jradiobutton[0].isSelected());
+		if(currques==6)
 			return(jradiobutton[0].isSelected());
 		return false;
 			}
