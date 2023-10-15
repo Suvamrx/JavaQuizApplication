@@ -8,7 +8,7 @@ public class Quiz extends JFrame implements ActionListener{
 	JButton button1,button2;
 	ButtonGroup buttongroup;
 	int count=0,currques=0;
-	int arr[]=new int[5];	
+	int arr[]=new int[6];	
 	Quiz(String str){
 		super(str);
 		jlable=new JLabel();
@@ -83,7 +83,12 @@ public class Quiz extends JFrame implements ActionListener{
 			jlable.setText("Java Is");
 			jradiobutton[0].setText("Platform Independent");jradiobutton[1].setText("Platform Dependent");jradiobutton[2].setText("Both ");jradiobutton[3].setText("None of Above");	
 		}
-
+		if(currques==5)
+		{
+			jlable.setText("What is the size of float and double in java?");
+			jradiobutton[0].setText("32 and 64");jradiobutton[1].setText("32 and 32");jradiobutton[2].setText("64 and 64");jradiobutton[3].setText("64 and 32");	
+		}
+		
 		jlable.setBounds(30,40,450,20);
 		for(int i=0,j=0;i<=90;i+=30,j++)
 			jradiobutton[j].setBounds(50,80+i,200,20);
@@ -98,6 +103,8 @@ public class Quiz extends JFrame implements ActionListener{
 		if(currques==3)
 			return(jradiobutton[3].isSelected());
 		if(currques==4)
+			return(jradiobutton[0].isSelected());
+		if(currques==5)
 			return(jradiobutton[0].isSelected());
 		return false;
 			}
