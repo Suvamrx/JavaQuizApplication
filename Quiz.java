@@ -8,7 +8,7 @@ public class Quiz extends JFrame implements ActionListener{
 	JButton button1,button2;
 	ButtonGroup buttongroup;
 	int count=0,currques=0;
-	int arr[]=new int[7];	
+	int arr[]=new int[8];	
 	Quiz(String str){
 		super(str);
 		jlable=new JLabel();
@@ -43,7 +43,7 @@ public class Quiz extends JFrame implements ActionListener{
 				count=count+1;
 			currques++;
 			set();	
-			if(currques==arr.length){
+			if(currques==7){
 				button1.setEnabled(false);
 				button2.setText("Result");
 			}
@@ -93,6 +93,11 @@ public class Quiz extends JFrame implements ActionListener{
 			jlable.setText("Javascript is an _______ language?");
 			jradiobutton[0].setText("Object-Oriented");jradiobutton[1].setText("Object-based");jradiobutton[2].setText("Procedural");jradiobutton[3].setText("None of the above");	
 		}
+		if(currques==7)
+		{
+			jlable.setText("Identify the keyword among the following that makes a variable belong to a class,rather than being defined for each instance of the class.");
+			jradiobutton[0].setText("final");jradiobutton[1].setText("static");jradiobutton[2].setText("volatile");jradiobutton[3].setText("abstract");	
+		}
 		
 		jlable.setBounds(30,40,450,20);
 		for(int i=0,j=0;i<=90;i+=30,j++)
@@ -113,6 +118,8 @@ public class Quiz extends JFrame implements ActionListener{
 			return(jradiobutton[0].isSelected());
 		if(currques==6)
 			return(jradiobutton[0].isSelected());
+		if(currques==7)
+			return(jradiobutton[1].isSelected());
 		return false;
 			}
 	
