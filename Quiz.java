@@ -8,7 +8,7 @@ public class Quiz extends JFrame implements ActionListener{
 	JButton button1,button2;
 	ButtonGroup buttongroup;
 	int count=0,currques=0;
-	int arr[]=new int[8];	
+	int arr[]=new int[9];	
 	Quiz(String str){
 		super(str);
 		jlable=new JLabel();
@@ -43,7 +43,7 @@ public class Quiz extends JFrame implements ActionListener{
 				count=count+1;
 			currques++;
 			set();	
-			if(currques==7){
+			if(currques==8){
 				button1.setEnabled(false);
 				button2.setText("Result");
 			}
@@ -98,6 +98,11 @@ public class Quiz extends JFrame implements ActionListener{
 			jlable.setText("Identify the keyword among the following that makes a variable belong to a class,rather than being defined for each instance of the class.");
 			jradiobutton[0].setText("final");jradiobutton[1].setText("static");jradiobutton[2].setText("volatile");jradiobutton[3].setText("abstract");	
 		}
+		if(currques==8)
+		{
+			jlable.setText("Output of Math.floor(3.6)?");
+			jradiobutton[0].setText("3");jradiobutton[1].setText("3.0");jradiobutton[2].setText("4");jradiobutton[3].setText("4.0");	
+		}
 		
 		jlable.setBounds(30,40,450,20);
 		for(int i=0,j=0;i<=90;i+=30,j++)
@@ -119,6 +124,8 @@ public class Quiz extends JFrame implements ActionListener{
 		if(currques==6)
 			return(jradiobutton[0].isSelected());
 		if(currques==7)
+			return(jradiobutton[1].isSelected());
+		if(currques==8)
 			return(jradiobutton[1].isSelected());
 		return false;
 			}
